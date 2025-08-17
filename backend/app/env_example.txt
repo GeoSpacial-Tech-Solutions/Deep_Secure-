@@ -1,0 +1,36 @@
+# Database Configuration
+DATABASE_URL=postgresql://deepfake:password@db:5432/deepfake
+
+# Security Configuration
+SECRET_KEY=your-super-secret-key-change-in-production
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+# File Upload Configuration
+MAX_FILE_SIZE=100MB
+ALLOWED_VIDEO_TYPES=mp4,avi,mov,wmv,flv
+UPLOAD_DIR=./uploads
+
+# Model Configuration
+MODEL_PATH=./models
+DETECTION_CONFIDENCE_THRESHOLD=0.7
+GEOSPATIAL_CONFIDENCE_THRESHOLD=0.8
+
+# API Configuration
+API_HOST=0.0.0.0
+API_PORT=8000
+DEBUG=False
+
+# CORS Configuration
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:80,https://localhost
+
+# Logging Configuration
+LOG_LEVEL=INFO
+LOG_FILE=./logs/app.log
+
+# Redis Configuration (for future use)
+REDIS_URL=redis://redis:6379
+
+# External Services (for future use)
+# OPENAI_API_KEY=your-openai-api-key
+# GOOGLE_CLOUD_API_KEY=your-google-cloud-api-key

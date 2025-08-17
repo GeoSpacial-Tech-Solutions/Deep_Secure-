@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - uploads_data:/app/uploads
+      - models_data:/app/models
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    restart: always
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: deepfake
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: deepfake
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:6-alpine
+    restart: always
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:
+  uploads_data:
+  models_data:
